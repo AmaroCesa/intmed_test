@@ -3,7 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import generics
 from rest_framework import viewsets
-from rest_framework import generics
 
 from rest_framework import serializers
 from rest_framework.decorators import list_route

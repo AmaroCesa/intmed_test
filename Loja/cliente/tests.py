@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django .urls import reverse_lazy
+from django.urls import reverse_lazy
 from django.urls import reverse
 from cliente.models import Cliente
 # Create your tests here.

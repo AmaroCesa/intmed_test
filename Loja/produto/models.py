@@ -10,13 +10,13 @@ GABINETE = 'GABINETE'
 PLACAMAE = 'PLACAMAE'
 FONTE = 'FONTE'
 categoria_validator = (
-        PROCESADORES
-        MEMORIARAM
-        DISCORIGIDO
-        PLACAVIDEO
-        GABINETE
-        PLACAMAE
-        FONTE
+        PROCESADORES,
+        MEMORIARAM,
+        DISCORIGIDO,
+        PLACAVIDEO,
+        GABINETE,
+        PLACAMAE,
+        FONTE,
     )       
 
 def categoria_range(value):
@@ -29,8 +29,7 @@ def categoria_range(value):
 validator para garantir range de categorias
 """
 class Categoria(models.Model):
-   
-    
+     
     choice_catgoria = (
         ('Processadores', PROCESADORES),
         ('Memória RAM', MEMORIARAM),
@@ -40,11 +39,10 @@ class Categoria(models.Model):
         ('Placa mãe',PLACAMAE),
         ('Fonte',FONTE)
     )
-    categoria_desc = models.CharField(max_length=32, choices=categoria_desc )
-
+    categoria_desc = models.CharField(max_length=32, choices=choice_catgoria, validators=[categoria_range] )
 
 class Produto (models.Model):
         
     especificacoes = models.TextField(max_length=250, blank=True, null=True)
     preco = models.FloatField()
-    categoria = models.ForeignKey(categoria)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
