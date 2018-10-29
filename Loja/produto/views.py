@@ -23,7 +23,7 @@ class ProdutoViewSet(viewsets.ModelViewSet):
         serializer = ProdutoSerializer(data=validate_data.data, context=validate_data.data.dict())
         if serializer.is_valid():
             produto = serializer.save()
-            Estoque.objects.create(produto=produto)
+            Estoque.objects.create(produto=produto, quantidade_em_estoque=0,quantidade_venda=0)
             
             return Response(serializer.context, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

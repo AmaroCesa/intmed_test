@@ -7,15 +7,14 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 
 from .models import Estoque
+from produto.models import Produto
 from .serializers import EstoqueSerializer
 from django.forms.models import model_to_dict
 
 class EstoqueView(generics.RetrieveUpdateAPIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAdminUser,)
+  
     queryset = Estoque.objects.all()
     serializer_class = EstoqueSerializer
-    generics.RetrieveUpdateAPIView
 
     def list(self, request):
         queryset = self.get_queryset()
@@ -26,11 +25,12 @@ class EstoqueView(generics.RetrieveUpdateAPIView):
         """
             Inserir quantidade de produtos a serem vendidos
         """
-        produto = request.data['prodoto_pk']
+        produto = Produto.objects.filter(id=request.data['prodoto_pk']).first()
         if produto :
-            estoque = Estoque.objects.filte(produto=produto)
+            estoque = Estoque.objects.filter(produto=produto).first()
             estoque.quantidade_em_estoque += request.data.get('quantidade_em_estoque', 0)
             estoque.quantidade_venda += request.data.get('quantidade_venda', 0)
+            
             try :
                 estoque.save()
             except e:

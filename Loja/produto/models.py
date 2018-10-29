@@ -2,13 +2,13 @@ from django.db import models
 from django.core.exceptions import ValidationError
 # Create your models here.'
 
-PROCESADORES = 'PROCESADORES'
-MEMORIARAM = 'MEMORIARAM'
-DISCORIGIDO = 'DISCORIGIDO'
-PLACAVIDEO = 'PLACAVIDEO'
-GABINETE = 'GABINETE'
-PLACAMAE = 'PLACAMAE'
-FONTE = 'FONTE'
+PROCESADORES = 'Processadores'
+MEMORIARAM = 'Memória RAM'
+DISCORIGIDO = 'Disco Rígido/SSD'
+PLACAVIDEO = 'Placa de Vídeo'
+GABINETE = 'Gabinete'
+PLACAMAE = 'Placa mãe'
+FONTE = 'Fonte'
 categoria_validator = (
         PROCESADORES,
         MEMORIARAM,
@@ -30,7 +30,7 @@ validator para garantir range de categorias
 """
 class Categoria(models.Model):
      
-    choice_catgoria = (
+    choice_categoria = (
         ('Processadores', PROCESADORES),
         ('Memória RAM', MEMORIARAM),
         ('Disco Rígido/SSD',DISCORIGIDO),
@@ -39,7 +39,7 @@ class Categoria(models.Model):
         ('Placa mãe',PLACAMAE),
         ('Fonte',FONTE)
     )
-    categoria_desc = models.CharField(max_length=32, choices=choice_catgoria, validators=[categoria_range] )
+    categoria_desc = models.CharField(max_length=32, choices=choice_categoria, validators=[categoria_range] )
 
 class Produto (models.Model):
         
