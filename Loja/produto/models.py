@@ -45,4 +45,4 @@ class Produto (models.Model):
         
     especificacoes = models.TextField(max_length=250, blank=True, null=True)
     preco = models.FloatField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)

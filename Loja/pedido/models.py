@@ -1,21 +1,22 @@
 from django.db import models
 from produto.models import Produto
+from cliente.models import Cliente
 
 # Create your models here.
 class Pedido(models.Model):    
-    
-    Pedido Realizado
-    Separação em estoque
-    Em montagem
-    Realização de testes
-    Concluído
+    """
+        Pedido Inconpelto 
+        Garantir categoria de cada produto
+    """
     
     valor = models.FloatField()
+    cliente =  models.ForeignKey(Cliente, on_delete=models.DO_NOTHING)
     statu_pedido = models.CharField(max_length=20)
-    processador = models.OneToOneField(Produto)
-    MEMORIARAM = models.OneToOneField(Produto)
-    DISCORIGIDO = models.OneToOneField(Produto)
-    PLACAVIDEO = models.OneToOneField(Produto)
-    GABINETE = models.OneToOneField(Produto)
-    PLACAMAE = models.OneToOneField(Produto)
-    FONTE = models.OneToOneField(Produto)
+    processador = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+    memoria = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+    disco = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+    placa_video = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+    gabinete = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+    placa_mae = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+    fonte = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
+
