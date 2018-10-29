@@ -5,6 +5,10 @@ from cliente.models import Cliente
 # Create your tests here.
 class TestCliente(TestCase):
     def test_register_cliente(self):
+        """
+            testar registro de cliente atraves da API Rest
+        """
+    
         data = {
             'username' : 'teste',
             'password1':'1@345678',
@@ -19,6 +23,9 @@ class TestCliente(TestCase):
         self.assertEqual(response.status_code, 201)
     
     def test_login_logout_cliente(self):
+        """
+            testar login/logout de cliente atraves da API Rest
+        """
         data = {
             'username' : 'teste',
             'password1':'1@345678',

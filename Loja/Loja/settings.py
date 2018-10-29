@@ -150,10 +150,12 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 ACCOUNT_ADAPTER = 'cliente.adapter.ClienteAccountAdapter'
 
+#quando efetuar login ser redirecionado para o api, **sistema sem interface
 LOGIN_REDIRECT_URL = '/api/'
+#configurar cliente como class User
 AUTH_USER_MODEL = 'cliente.Cliente'
 
-
+#pre configuração para api trello
 API_KEY = 'cd41a619f6b4012e787cf80d6dccfcff'
 TRELLO_API_SECRET = 'b97ab6ef8ab3771f4355c14ee09e2ac3da1780584bbc8b477e88ba56edf5c3f0'
 CALLBACK_DOMAIN = 'your_trello_callback_domain'

@@ -18,7 +18,7 @@ class ProdutoViewSet(viewsets.ModelViewSet):
 
     def create(self, validate_data):
         """
-            Alteração para inserir em estoque o produto cadastrado
+            Alteração do create para inserir em estoque o produto cadastrado
         """
         serializer = ProdutoSerializer(data=validate_data.data, context=validate_data.data.dict())
         if serializer.is_valid():

@@ -20,6 +20,9 @@ from django.contrib.auth import login, authenticate
 
 
 class ClienteViewSet(viewsets.ModelViewSet):
+    """
+        Cliente registro e controle de permiçoes para acesso
+    """
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
     
