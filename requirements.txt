@@ -3,3 +3,4 @@ trello==0.9.1
 djangorestframework==3.9.0
 django-allauth==0.38.0
 django-rest-auth==0.9.3
+django-trello-webhooks==0.3
