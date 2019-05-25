@@ -20,6 +20,7 @@ class ProdutoViewSet(viewsets.ModelViewSet):
         """
             Alteração do create para inserir em estoque o produto cadastrado
         """
+        # adicionar um cartão sempre que um pedido for adicionado
         serializer = ProdutoSerializer(data=validate_data.data, context=validate_data.data.dict())
         if serializer.is_valid():
             produto = serializer.save()
@@ -39,4 +40,6 @@ class ProdutoViewSet(viewsets.ModelViewSet):
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
 
-    
+    def change_status(self):
+        #modificar status do pedido conforme atualização no trello 
+        pass

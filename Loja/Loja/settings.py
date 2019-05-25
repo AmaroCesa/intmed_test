@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'allauth.socialaccount.providers.trello',
+    'trello',
+    'trello_webhooks'
 ]
 
 MIDDLEWARE = [
@@ -125,7 +128,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+SOCIALACCOUNT_PROVIDERS = {
+    'trello': {
+        'AUTH_PARAMS': {
+            'scope': 'read,write',
+        },
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -155,7 +164,7 @@ LOGIN_REDIRECT_URL = '/api/'
 AUTH_USER_MODEL = 'cliente.Cliente'
 
 #pre configuração para api trello
-API_KEY = 'cd41a619f6b4012e787cf80d6dccfcff'
-TRELLO_API_SECRET = 'b97ab6ef8ab3771f4355c14ee09e2ac3da1780584bbc8b477e88ba56edf5c3f0'
-CALLBACK_DOMAIN = 'your_trello_callback_domain'
-
+TRELLO_API_KEY = 'f2879bac0b544a091ee57eb0472e5425'
+API_KEY = 'f2879bac0b544a091ee57eb0472e5425'
+TRELLO_API_SECRET = '5e179d7780f5ffd558e86b8245b51ee4d257e957b8932e309e4cb2d437c9d2f7'
+CALLBACK_DOMAIN = 'http://amarocesar.pythonanywhere.com/trellocallback'

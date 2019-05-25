@@ -9,3 +9,6 @@ class PedidoTest(TestCase):
         Testar trello Modificaçoes;
 
     """
+    def test_posso_criar_card(self):
+        pass
+        
