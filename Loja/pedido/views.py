@@ -15,6 +15,12 @@ from rest_framework import views
 #     arq.close
 #     print(event)
 
+def trello_callback(request, *args, **kwargs):
+    arq = open("log.txt", "w")
+    arq.write(request.content)
+    arq.close
+    print(event)
+
 class PedidoView(views.APIView):
     """
         Pedido incomplete
