@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.conf import settings
 # Create your views here.
-# from rest_framework import views
+from rest_framework import views
 
 # from django.conf import settings
 # from django.dispatch import receiver
