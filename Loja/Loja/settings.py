@@ -47,9 +47,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
-    'allauth.socialaccount.providers.trello',
     'trello',
-    'trello_webhooks'
 ]
 
 MIDDLEWARE = [
@@ -67,7 +65,7 @@ ROOT_URLCONF = 'Loja.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

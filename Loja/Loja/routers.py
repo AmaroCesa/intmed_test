@@ -5,3 +5,4 @@ from cliente.views import ClienteViewSet
 router = routers.DefaultRouter()
 router.register('produto',ProdutoViewSet, base_name='produto')
 router.register('cliente',ClienteViewSet, base_name='cliente')
+router.register('pedido',PedidoViewSet, base_name='pedido')
