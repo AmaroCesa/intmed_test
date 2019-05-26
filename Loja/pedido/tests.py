@@ -43,7 +43,8 @@ class PedidoTest(TestCase):
         data = {
             'cliente': self.cliente.pk,
             'statu_pedido': 'Pedido Realizado',
-            'produto': self.produto.pk,       
+            'produto': self.produto.pk, 
+            'valor': 33,      
         }
         
         import ipdb; ipdb.set_trace()
