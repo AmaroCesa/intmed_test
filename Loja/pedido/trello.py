@@ -6,18 +6,25 @@ from django.template import loader
 
 def create_card(pedido):    
     cliente = pedido.cliente
+    # placa_video
+    # processador
+    # memoria
+    # disco
+    # gabinete
+    # placa_mae
+    # fonte
     data = {
         'statu_pedido': str(pedido.statu_pedido),
         'nome': str(cliente.username),
         'email' : str(cliente.email),
         'telefone' : str(cliente.telefone),
-        'placa_video' : str(pedido.placa_video),
-        'processador' : str(processador),
-        'memoria' : str(memoria),
-        'disco' : str(disco),
-        'gabinete' : str(gabinete),
-        'placa_mae' : str(placa_mae),
-        'fonte' : str(fonte),       
+        # 'placa_video' : str(pedido.placa_video),
+        # 'processador' : str(processador),
+        # 'memoria' : str(memoria),
+        # 'disco' : str(disco),
+        # 'gabinete' : str(gabinete),
+        # 'placa_mae' : str(placa_mae),
+        # 'fonte' : str(fonte),       
     }
     client = TrelloClient(api_key=settings.API_KEY,  token=settings.TRELLO_API_SECRET)
     if settings.BOARD_NAME:
