@@ -43,7 +43,7 @@ class PedidoTest(TestCase):
         data = {
             'cliente': str(self.cliente.pk),
             'statu_pedido': 'Pedido Realizado',
-            'produtos': str(self.produto.pk), 
+            'produtos': [str(self.produto.pk),], 
             'valor': '33',      
         }
         
