@@ -6,10 +6,7 @@ from django.template import loader
 
 def get_component(pedido, categoria):
     for produto in pedido.produtos:
-        if produto.categoria == categoria:
-            return produto
-        else return None
-
+        return produto if (produto.categoria == categoria) else None
 
 def check_board(boards):
         for board in boards:
