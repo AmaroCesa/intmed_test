@@ -17,5 +17,5 @@ urlpatterns = [
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('trellocallback', trello_callback),
-
+    path('accounts/', include('allauth.urls')),
 ]
