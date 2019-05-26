@@ -5,9 +5,8 @@ from cliente.models import Cliente
 from django.template import loader
 
 def get_component(pedido, categoria):
-    import ipdb; ipdb.set_trace()
     for produto in pedido.produtos.all():
-        return produto.especificacoes if (produto.categoria == categoria) else None
+        return produto.especificacoes if (produto.categoria.categoria_desc == categoria) else None
 
 def check_board(boards):
         for board in boards:
