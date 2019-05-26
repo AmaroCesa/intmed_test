@@ -41,10 +41,10 @@ class PedidoTest(TestCase):
     def test_posso_criar_pedido(self):
         
         data = {
-            'cliente': self.cliente.pk,
+            'cliente': str(self.cliente.pk),
             'statu_pedido': 'Pedido Realizado',
-            'produto': self.produto.pk, 
-            'valor': 33,      
+            'produto': str(self.produto.pk), 
+            'valor': '33',      
         }
         
         import ipdb; ipdb.set_trace()
