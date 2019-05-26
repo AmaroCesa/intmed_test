@@ -7,6 +7,6 @@ class PedidoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pedido
-        fields = ('id', 'valor','cliente', 'status_pedido', 'produtos')
+        fields = ('id', 'valor','cliente', 'statu_pedido', 'produtos')
 
 
