@@ -18,7 +18,7 @@ class TestCliente(TestCase):
         }
         
         response = self.client.post(reverse('rest_register'), data=data )
-        cliente = Cliente.objets.all().first()
+        cliente = Cliente.objects.all().first()
         self.assertEqual(cliente.username, 'teste')
         self.assertEqual(response.status_code, 201)
     

@@ -36,7 +36,7 @@ class PedidoTest(TestCase):
         }
         
         response = self.client.post(reverse('rest_register'), data=cliente )
-        self.cliente = Cliente.objets.all().first()
+        self.cliente = Cliente.objects.all().first()
 
     def test_posso_criar_pedido(self):
         
