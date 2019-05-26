@@ -10,5 +10,10 @@ class PedidoTest(TestCase):
 
     """
     def test_posso_criar_card(self):
-        pass
-        
+        data ={
+            'prodoto_pk': self.produto.id,
+            'quantidade_em_estoque' : 10,
+            'quantidade_venda' : 5
+        }
+       
+        response = self.client.post(reverse_lazy('pedido-list'), data=data)
