@@ -10,7 +10,7 @@ class Pedido(models.Model):
     """
     
     valor = models.FloatField()
-    cliente =  models.ForeignKey(Cliente, on_delete=models.DO_NOTHING)
+    cliente =  models.ForeignKey(Cliente,on_delete=models.CASCADE)
     statu_pedido = models.CharField(max_length=20)
     processador = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
     memoria = models.OneToOneField(Produto, on_delete=models.DO_NOTHING)
