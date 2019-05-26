@@ -6,7 +6,7 @@ from django.template import loader
 
 def get_component(pedido, categoria):
     for produto in pedido.produtos.all():
-        return produto if (produto.categoria == categoria) else None
+        return produto.especificacoes if (produto.categoria == categoria) else None
 
 def check_board(boards):
         for board in boards:
@@ -27,13 +27,13 @@ def create_card(pedido):
         'nome': str(cliente.username),
         'email' : str(cliente.email),
         'telefone' : str(cliente.telefone),
-        'placa_video' : str(placa_video.especificacoes),
-        'processador' : str(processador.especificacoes),
-        'memoria' : str(memoria.especificacoes),
-        'disco' : str(disco.especificacoes),
-        'gabinete' : str(gabinete.especificacoes),
-        'placa_mae' : str(placa_mae.especificacoes),
-        'fonte' : str(fonte.especificacoes),
+        'placa_video' : str(placa_video),
+        'processador' : str(processador),
+        'memoria' : str(memoria),
+        'disco' : str(disco),
+        'gabinete' : str(gabinete),
+        'placa_mae' : str(placa_mae),
+        'fonte' : str(fonte),
         }
     client = TrelloClient(api_key=settings.API_KEY,  token=settings.TRELLO_API_SECRET)
     if settings.BOARD_NAME:
