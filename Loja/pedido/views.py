@@ -7,6 +7,7 @@ from .serializer import PedidoSerializer
 from .models import Pedido
 from rest_framework import status
 from rest_framework.response import Response
+from django.http import HttpResponse
 
 # @receiver(callback_received, dispatch_uid="callback_received")
 # def on_callback_received(sender, **kwargs):
@@ -21,8 +22,7 @@ def trello_callback(request, *args, **kwargs):
     # arq.write(request.content)
     # arq.close
     # print(event)
-    return Response({'detail':'sucess'}, status=status.HTTP_200_OK)
-
+    return HttpResponse(status=200)
 
 class PedidoViewSet(viewsets.ModelViewSet):
     """
