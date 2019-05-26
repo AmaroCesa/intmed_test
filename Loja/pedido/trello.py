@@ -4,12 +4,10 @@ from pedido.models import Pedido
 from cliente.models import Cliente
 from django.template import loader
 
-def create_card(pedido):
-    import ipdb; ipdb.set_trace()
-        
+def create_card(pedido):    
     cliente = pedido.cliente
     data = {
-        'statu_pedido': str(pedido.status_pedido),
+        'statu_pedido': str(pedido.statu_pedido),
         'nome': str(cliente.username),
         'email' : str(cliente.email),
         'telefone' : str(cliente.telefone),

@@ -32,11 +32,12 @@ class PedidoViewSet(viewsets.ModelViewSet):
     queryset = Pedido.objects.all()
 
     def create(self, request): 
-        # card = super(PedidoViewSet, self).create(request)
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             pedido = serializer.save()
         else:
             return Response(pedido.errors, status=400)
-        create_card(pedido)
-        return card 
+        card = create_card(pedido)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+ 
