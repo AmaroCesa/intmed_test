@@ -1,3 +1,4 @@
+import json
 # from django.shortcuts import render
 from django.conf import settings
 # Create your views here.
@@ -9,20 +10,14 @@ from rest_framework import status
 from rest_framework.response import Response
 from django.http import HttpResponse
 
-# @receiver(callback_received, dispatch_uid="callback_received")
-# def on_callback_received(sender, **kwargs):
-#     event = kwargs.pop('event')
-#     arq = open("log.txt", "w")
-#     arq.write(str(event))
-#     arq.close
-#     print(event)
 
 def trello_callback(request, *args, **kwargs):
-    # arq = open("log.txt", "w")
-    # arq.write(request.content)
-    # arq.close
-    # print(event)
+    #TODO: tratar status pedido
+    jsondata = request.body
+    data = jsondata
+
     return HttpResponse(status=200)
+
 
 class PedidoViewSet(viewsets.ModelViewSet):
     """
