@@ -28,7 +28,7 @@ def create_card(pedido):
     }
     client = TrelloClient(api_key=settings.API_KEY,  token=settings.TRELLO_API_SECRET)
     if settings.BOARD_NAME:
-        board = check_board(client.lsit_boards())
+        board = check_board(client.list_boards())
         for lista in board.all_lists():
             if lista.name == pedido.statu_pedido:
                 lista.add_card(name=f'Pedido {pedido.id}', desc=loader.render_to_string('pedido_template.txt', data))
