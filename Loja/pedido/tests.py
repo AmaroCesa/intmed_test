@@ -29,7 +29,7 @@ class PedidoTest(TestCase):
             'placa_video' : 'Placa de Video',
             'processador' : 'Processador',
             'memoria' : 'memoria',
-            'disco' : str(disco),
+            'disco' : 'disco',
             'gabinete' : 'gabinete',
             'placa_mae' : 'placa_mae',
             'fonte' : 'fonte',       
