@@ -9,7 +9,8 @@ class PedidoTest(TestCase):
         Testar trello Modificaçoes;
 
     """
-      def setUp(self):
+    
+    def setUp(self):
         user = Cliente.objects.create_superuser(username='teste', password='1@345678', email='test@test.com')
         self.cliente = self.client.force_login(user)
         self.categoria = Categoria.objects.create(categoria_desc='DISCORIGIDO')
