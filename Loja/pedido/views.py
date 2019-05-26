@@ -33,9 +33,10 @@ class PedidoViewSet(viewsets.ModelViewSet):
 
     def create(self, request): 
         # card = super(PedidoViewSet, self).create(request)
-        import ipdb; ipdb.set_trace()
         serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        pedido = serializer.save()
+        if serializer.is_valid():
+            pedido = serializer.save()
+        else:
+            return Response(pedido.errors, status=400)
         create_card(pedido)
         return card 

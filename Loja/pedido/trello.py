@@ -5,7 +5,9 @@ from cliente.models import Cliente
 from django.template import loader
 
 def create_card(pedido):
-    cliente = Cliente.objects.filter(pk=pedido.cliente).first()
+    import ipdb; ipdb.set_trace()
+        
+    cliente = pedido.cliente
     data = {
         'statu_pedido': str(pedido.status_pedido),
         'nome': str(cliente.username),
