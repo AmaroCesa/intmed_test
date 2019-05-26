@@ -3,6 +3,9 @@ from cliente.models import Cliente
 from produto.models import Produto
 from produto.models import Categoria
 
+from django.urls import reverse_lazy
+
+
 class PedidoTest(TestCase):
     """
         Pedido Incompleto
