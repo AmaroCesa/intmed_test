@@ -12,7 +12,7 @@ def create_card(pedido):
         'nome': str(cliente.username),
         'email' : str(cliente.email),
         'telefone' : str(cliente.telefone),
-        'placa_video' : str(pedido.placa_video)
+        'placa_video' : str(pedido.placa_video),
         'processador' : str(processador),
         'memoria' : str(memoria),
         'disco' : str(disco),
