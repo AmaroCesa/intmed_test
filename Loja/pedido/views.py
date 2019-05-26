@@ -13,10 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def trello_callback(request, *args, **kwargs):
-    #TODO: tratar status pedido
+    #TODO: tratar status pedido verificando mensagem callback
     jsondata = request.body
     data = json.loads(jsondata)
-    print('#############################', data)
+    print('#############################', data['action'])
 
     return HttpResponse(status=200)
 
