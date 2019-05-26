@@ -37,7 +37,7 @@ class PedidoViewSet(viewsets.ModelViewSet):
             pedido = serializer.save()
         else:
             return Response(pedido.errors, status=400)
-        card = create_card(pedido)
+        create_card(pedido)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
  
