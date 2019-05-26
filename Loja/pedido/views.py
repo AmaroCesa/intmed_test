@@ -9,12 +9,14 @@ from .models import Pedido
 from rest_framework import status
 from rest_framework.response import Response
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 def trello_callback(request, *args, **kwargs):
     #TODO: tratar status pedido
     jsondata = request.body
-    data = jsondata
+    data = json.loads(jsondata)
+    print('#############################', data)
 
     return HttpResponse(status=200)
 
