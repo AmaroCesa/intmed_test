@@ -166,7 +166,7 @@ AUTH_USER_MODEL = 'cliente.Cliente'
 TRELLO_API_KEY = 'f2879bac0b544a091ee57eb0472e5425'
 API_KEY = 'f2879bac0b544a091ee57eb0472e5425'
 TRELLO_API_SECRET = '5e179d7780f5ffd558e86b8245b51ee4d257e957b8932e309e4cb2d437c9d2f7'
-CALLBACK_DOMAIN = 'http://amarocesar.pythonanywhere.com/trellocallback'
+CALLBACK_DOMAIN = 'http://amarocesar.pythonanywhere.com/trelloCallbacks'
 
 api_key='f2879bac0b544a091ee57eb0472e5425',
 api_secret='f2a7a8ed57e96aab4c50d6dc2cb72d968ba674d7d0ff40e0d2fa39f9b5188027',
