@@ -4,7 +4,7 @@ from django.conf import settings
 from rest_framework import viewsets
 from .trello import create_card
 from .serializer import PedidoSerializer
-
+from .models import Pedido
 from rest_framework import status
 from rest_framework.response import Response
 
