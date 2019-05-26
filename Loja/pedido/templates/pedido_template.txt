@@ -1,10 +1,10 @@
 Cliente:
-nome: {{cliente.username}},
-email : {{cliente.email}},
-telefone : {{cliente.telefone}},
+nome: {{username}},
+email : {{email}},
+telefone : {{telefone}},
 
 Components:
-'Placa de Vídeo' : {{pedido.placa_video}}
+'Placa de Vídeo' : {{placa_video}}
 'Processador' : {{processador}},
 'Memoria' : {{memoria}},
 'Disco' : {{disco}},
