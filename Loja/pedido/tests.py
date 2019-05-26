@@ -2,7 +2,7 @@ from django.test import TestCase
 from cliente.models import Cliente
 from produto.models import Produto
 from produto.models import Categoria
-
+from django.urls import reverse
 from django.urls import reverse_lazy
 
 
