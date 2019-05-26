@@ -26,7 +26,7 @@ class PedidoTest(TestCase):
             'nome': 'Teste',
             'email' : 'test@test.com',
             'telefone' : '898323277',
-            'placa_video' : 'Placa de Video'
+            'placa_video' : 'Placa de Video',
             'processador' : 'Processador',
             'memoria' : 'memoria',
             'disco' : str(disco),
@@ -36,3 +36,4 @@ class PedidoTest(TestCase):
         }
         
         response = self.client.post(reverse_lazy('pedido-list'), data=data)
+        import ipdb; ipdb.set_trace()
