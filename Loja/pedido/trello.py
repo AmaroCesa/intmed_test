@@ -26,7 +26,7 @@ def create_card(pedido):
        
         for lista in board.all_lists():
             if lista.name == pedido.statu_pedido:
-                lista.add_card(name=f'Pedido {data['id']}', desc=)
+                lista.add_card(name=f'Pedido {data['id']}', desc=loader.render_to_string('pedido_template.txt', data))
 
     add_card(self, name, desc=None)
 
