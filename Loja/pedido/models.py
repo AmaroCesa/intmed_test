@@ -10,7 +10,7 @@ class Pedido(models.Model):
     """
     
     valor = models.FloatField()
-    cliente =  models.ForeignKey(Cliente,related_name='cliente_pedido',on_delete=models.CASCADE)
+    cliente =  models.ForeignKey(Cliente,related_name='cliente_pedido')
     statu_pedido = models.CharField(max_length=20)
     produtos = models.ManyToManyField(Produto, related_name="produto_list", on_delete=models.DO_NOTHING)
     
