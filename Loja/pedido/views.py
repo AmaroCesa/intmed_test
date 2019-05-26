@@ -21,7 +21,8 @@ def trello_callback(request, *args, **kwargs):
     # arq.write(request.content)
     # arq.close
     # print(event)
-    return Response({'detail':'sucess'}, status=status=status.HTTP_200_OK)
+    return Response({'detail':'sucess'}, status=status.HTTP_200_OK)
+
 
 class PedidoViewSet(viewsets.ModelViewSet):
     """
