@@ -17,10 +17,10 @@ from rest_framework.response import Response
 #     print(event)
 
 def trello_callback(request, *args, **kwargs):
-    arq = open("log.txt", "w")
-    arq.write(request.content)
-    arq.close
-    print(event)
+    # arq = open("log.txt", "w")
+    # arq.write(request.content)
+    # arq.close
+    # print(event)
     return Response('', status=200)
 
 class PedidoViewSet(viewsets.ModelViewSet):
