@@ -47,6 +47,5 @@ class PedidoTest(TestCase):
             'valor': '33',      
         }
         
-        import ipdb; ipdb.set_trace()
         response = self.client.post(reverse_lazy('pedido-list'), data=data)
         import ipdb; ipdb.set_trace()
