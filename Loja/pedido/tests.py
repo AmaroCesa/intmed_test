@@ -1,4 +1,6 @@
 from django.test import TestCase
+from cliente.models import Cliente
+from produto.models import Produto
 
 class PedidoTest(TestCase):
     """
