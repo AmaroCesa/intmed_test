@@ -35,8 +35,6 @@ def create_card(pedido):
 
                 lista.add_card(name=f'Pedido {pedido.id}', desc=loader.render_to_string('pedido_template.txt', data))
 
-    add_card(self, name, desc=None)
-
 def check_board(boards):
         for board in boards:
             if board.name == settings.BOARD_NAME:
