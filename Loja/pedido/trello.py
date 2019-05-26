@@ -7,7 +7,6 @@ from django.template import loader
 def create_card(pedido):
     cliente = Cliente.objects.filter(pk=pedido.cliente).first()
     data = {
-        'id': str(pedido.id),
         'statu_pedido': str(pedido.status_pedido),
         'nome': str(cliente.username),
         'email' : str(cliente.email),
@@ -26,7 +25,8 @@ def create_card(pedido):
        
         for lista in board.all_lists():
             if lista.name == pedido.statu_pedido:
-                lista.add_card(name=f'Pedido {data['id']}', desc=loader.render_to_string('pedido_template.txt', data))
+
+                lista.add_card(name=f'Pedido {pedido.id}', desc=loader.render_to_string('pedido_template.txt', data))
 
     add_card(self, name, desc=None)
 
