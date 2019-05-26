@@ -174,4 +174,4 @@ token='your-oauth-token-key',
 token_secret='5e179d7780f5ffd558e86b8245b51ee4d257e957b8932e309e4cb2d437c9d2f7'
 
 #configurações de funcionamento
-BOARD_NAME = ''
+BOARD_NAME = 'TesteIntmed'
