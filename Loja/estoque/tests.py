@@ -30,4 +30,5 @@ class EstoqueTest(TestCase):
         }
        
         response = self.client.put(reverse_lazy('estoque'), data=data, content_type='application/json')
+        self.assertEqual(response.status_code, 201)
         

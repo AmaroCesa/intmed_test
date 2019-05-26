@@ -39,7 +39,6 @@ class PedidoTest(TestCase):
         self.cliente = Cliente.objects.all().first()
 
     def test_posso_criar_pedido(self):
-        
         data = {
             'cliente': str(self.cliente.pk),
             'statu_pedido': 'Pedido Realizado',
@@ -48,4 +47,4 @@ class PedidoTest(TestCase):
         }
         
         response = self.client.post(reverse_lazy('pedido-list'), data=data)
-        import ipdb; ipdb.set_trace()
+        self.assertEqual(response.status_code, 201)
