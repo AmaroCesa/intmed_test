@@ -5,6 +5,7 @@ from cliente.models import Cliente
 from django.template import loader
 
 def get_component(pedido, categoria):
+    import ipdb; ipdb.set_trace()
     for produto in pedido.produtos.all():
         return produto.especificacoes if (produto.categoria == categoria) else None
 
@@ -24,7 +25,7 @@ def create_card(pedido):
     fonte = get_component(pedido, 'Fonte')
     data = {
         'statu_pedido': str(pedido.statu_pedido),
-        'nome': str(cliente.username),
+        'username': str(cliente.username),
         'email' : str(cliente.email),
         'telefone' : str(cliente.telefone),
         'placa_video' : str(placa_video),
