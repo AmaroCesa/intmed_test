@@ -19,7 +19,7 @@ class PedidoTest(TestCase):
     def setUp(self):
         user = Cliente.objects.create_superuser(username='teste', password='1@345678', email='test@test.com')
         self.cliente = self.client.force_login(user)
-        self.categoria = Categoria.objects.create(categoria_desc='DISCORIGIDO')
+        self.categoria = Categoria.objects.create(categoria_desc='Disco Rígido/SSD')
         produto = {
             'especificacoes': 'TESTETESTESTESTETSTESTEST',
             'preco':  12.1 ,
