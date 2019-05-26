@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Pedido
-from produto.serializers import ProdutoSerializer
 from produto.models import Produto
 
 class PedidoSerializer(serializers.HyperlinkedModelSerializer):
