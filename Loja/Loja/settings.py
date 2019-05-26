@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'cliente',
     'produto',
     'estoque',
+    'pedido',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
