@@ -9,7 +9,17 @@ class PedidoTest(TestCase):
         Testar trello Modificaçoes;
 
     """
-    def test_posso_criar_pedido(self):
+      def setUp(self):
+        user = Cliente.objects.create_superuser(username='teste', password='1@345678', email='test@test.com')
+        self.cliente = self.client.force_login(user)
+        self.categoria = Categoria.objects.create(categoria_desc='DISCORIGIDO')
+        self.produto = {
+            'especificacoes': 'TESTETESTESTESTETSTESTEST',
+            'preco':  12.1 ,
+            'categoria': self.categoria.id,
+        }
+        response = self.client.post(reverse_lazy('produto-list'), data=data)
+        self.produto = Produto.objects.all().first()
         data = {
             'username' : 'teste',
             'password1':'1@345678',
@@ -20,20 +30,15 @@ class PedidoTest(TestCase):
         
         response = self.client.post(reverse('rest_register'), data=data )
         cliente = Cliente.objets.all().first()
+
+    def test_posso_criar_pedido(self):
+        
         data = {
-            'cliente': cliente.pk,
+            'cliente': self.cliente.pk,
             'statu_pedido': 'Pedido Realizado',
-            'nome': 'Teste',
-            'email' : 'test@test.com',
-            'telefone' : '898323277',
-            'placa_video' : 'Placa de Video',
-            'processador' : 'Processador',
-            'memoria' : 'memoria',
-            'disco' : 'disco',
-            'gabinete' : 'gabinete',
-            'placa_mae' : 'placa_mae',
-            'fonte' : 'fonte',       
+            'produto': self.produto.pk,       
         }
         
+        import ipdb; ipdb.set_trace()
         response = self.client.post(reverse_lazy('pedido-list'), data=data)
         import ipdb; ipdb.set_trace()
