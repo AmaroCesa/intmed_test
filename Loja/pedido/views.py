@@ -41,14 +41,14 @@ def check_pedido_valid(pedido):
     for produto in pedido.produtos:
         if produto.categoria.categoria_desc in lista_verificar:
             index = categoria_list.index(produto.categoria.categoria_desc)
-            categoria_list.del(index)
+            categoria_list.pop(index)
     
     if count < 7 or not categoria_list:
         return False
     else:
         return True
     
-    
+
 class PedidoViewSet(viewsets.ModelViewSet):
     """
         Pedido incomplete
