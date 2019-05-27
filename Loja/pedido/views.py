@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from .trello import create_card
 from .serializer import PedidoSerializer
 from .models import Pedido
+from .models import Categoria
 from rest_framework import status
 from rest_framework.response import Response
 from django.http import HttpResponse
@@ -32,7 +33,27 @@ def trello_callback(request, *args, **kwargs):
     except Exception as e:
         return HttpResponse(status=200)
 
+def search (lista, valor):
+    return (lista.index(x), x.index(valor)) for x in lista if valor in x
 
+
+def check_pedido_valid(pedido):
+    categoria = Categoria.objects.all()
+    categoria_list = list(categoria)
+    lista_verificar = []
+    for cat in categoria_list:
+        lista_verificar.append(cat.categoria_desc)
+    count = 0
+    for produto in pedido.produtos:
+        if produto.categoria.categoria_desc in lista_verificar:
+            index = categoria_list.index(produto.categoria.categoria_desc)
+            categoria_list.del(index)
+    
+    if count < 7 or not categoria_list:
+        return False
+    else:
+        return True
+    
 class PedidoViewSet(viewsets.ModelViewSet):
     """
         Pedido incomplete
@@ -48,6 +69,13 @@ class PedidoViewSet(viewsets.ModelViewSet):
             pedido = serializer.save()
         else:
             return Response(pedido.errors, status=400)
+        
+        if check_pedido_valid(pedido):
+            
+        else:
+            return Response({'detail': 'Produtos não fecham um pedido'}, status=status.HTTP_400_BAD_REQUEST, headers=headers)
+ 
+        
         create_card(pedido)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
