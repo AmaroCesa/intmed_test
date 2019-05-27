@@ -65,11 +65,8 @@ class PedidoViewSet(viewsets.ModelViewSet):
         else:
             return Response(pedido.errors, status=400)
         
-        if check_pedido_valid(pedido):
-            
-        else:
+        if not check_pedido_valid(pedido):
             return Response({'detail': 'Produtos não fecham um pedido'}, status=status.HTTP_400_BAD_REQUEST, headers=headers)
- 
         
         create_card(pedido)
         headers = self.get_success_headers(serializer.data)
