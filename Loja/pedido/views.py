@@ -16,8 +16,13 @@ def trello_callback(request, *args, **kwargs):
     #TODO: tratar status pedido verificando mensagem callback
     jsondata = request.body
     data = json.loads(jsondata)
-    print('#############################', data['action'])
-
+    action = data['action']
+    if action or action != {}:
+        pedido_id = action['card']['name'].split(' ')[1]
+        pedido = Pedido.objects.filter(pk=pedido_id).first()
+        status = action['listAfter']['name']
+        pedido.status = status
+        pedido.save()
     return HttpResponse(status=200)
 
 
