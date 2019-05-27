@@ -11,23 +11,26 @@ from rest_framework.response import Response
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
+
+
+
 @csrf_exempt
 def trello_callback(request, *args, **kwargs):
     #TODO: tratar status pedido verificando mensagem callback
     jsondata = request.body
-    data = json.loads(jsondata)
-    action = data['action']['data']
-    if action or action != {}:
-        pedido_id = action['card']['name'].split(' ')[1]
-        
-        pedido = Pedido.objects.filter(pk=pedido_id).first()
-        print('####################', pedido)
-        status = action['listAfter']['name']
-        pedido.statu_pedido = status
-        print('####################', status)
-
-        pedido.save()
-    return HttpResponse(status=200)
+    try:
+        data = json.loads(jsondata)
+        action = data['action']['data']
+        if action or action != {}:
+            pedido_id = action['card']['name'].split(' ')[1]
+            pedido = Pedido.objects.filter(pk=pedido_id).first()
+            status = action['listAfter']['name']
+            pedido.statu_pedido = status
+            pedido.save()
+        return HttpResponse(status=200)
+    
+    except Exception as e:
+        return HttpResponse(status=200)
 
 
 class PedidoViewSet(viewsets.ModelViewSet):
