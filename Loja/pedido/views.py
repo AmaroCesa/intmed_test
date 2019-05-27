@@ -23,7 +23,7 @@ def trello_callback(request, *args, **kwargs):
         pedido = Pedido.objects.filter(pk=pedido_id).first()
         print('####################', pedido)
         status = action['listAfter']['name']
-        pedido.status = status
+        pedido.statu_pedido = status
         print('####################', status)
 
         pedido.save()
