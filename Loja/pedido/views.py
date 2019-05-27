@@ -1,16 +1,16 @@
 import json
 # from django.shortcuts import render
 from django.conf import settings
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
+from produto.models import Categoria
 from .trello import create_card
 from .serializer import PedidoSerializer
 from .models import Pedido
-from .models import Categoria
-from rest_framework import status
-from rest_framework.response import Response
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
