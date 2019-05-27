@@ -13,8 +13,6 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
-
-
 @csrf_exempt
 def trello_callback(request, *args, **kwargs):
     #TODO: tratar status pedido verificando mensagem callback
@@ -33,10 +31,6 @@ def trello_callback(request, *args, **kwargs):
     except Exception as e:
         return HttpResponse(status=200)
 
-def search (lista, valor):
-    return (lista.index(x), x.index(valor)) for x in lista if valor in x
-
-
 def check_pedido_valid(pedido):
     categoria = Categoria.objects.all()
     categoria_list = list(categoria)
@@ -53,6 +47,7 @@ def check_pedido_valid(pedido):
         return False
     else:
         return True
+    
     
 class PedidoViewSet(viewsets.ModelViewSet):
     """
