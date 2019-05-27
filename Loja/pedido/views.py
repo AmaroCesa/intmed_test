@@ -17,10 +17,11 @@ def trello_callback(request, *args, **kwargs):
     jsondata = request.body
     data = json.loads(jsondata)
     action = data['action']
-    print('#################+###', action)
     if action or action != {}:
         pedido_id = action['card']['name'].split(' ')[1]
+        print('####################', pedido_id)
         pedido = Pedido.objects.filter(pk=pedido_id).first()
+        print('####################', pedido)
         status = action['listAfter']['name']
         pedido.status = status
         pedido.save()
