@@ -1,5 +1,5 @@
 Django==2.1.2
 trello==0.9.1
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 django-allauth==0.38.0
 py-trello==0.15.0
